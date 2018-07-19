@@ -301,14 +301,13 @@ For that open the <code>build.gradle</code> file and adapt the <code>plugin</cod
 <div class="content">
 <pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">plugins {
     id 'java'
-    id 'application'
     id 'com.gradle.build-scan' version '1.15.1'
     id 'org.springframework.boot' version '2.0.3.RELEASE'
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>We now apply Gradle’s <code>java</code> and <code>application</code> plugin and as well added the Gradle build scan plugin, with which we are able to create a build scan.
+<p>We also apply Gradle’s <code>java</code> and build scan plugin, with which we are able to create a build scan.
 We will cover what build scans are later in this guide.</p>
 </div>
 <div class="paragraph">
@@ -404,7 +403,7 @@ This will always publish a build scan after each build and always accept the <a 
 <h2 id="creating_a_hello_gradle_sample_application"><a class="anchor" href="#creating_a_hello_gradle_sample_application"></a><a class="link" href="#creating_a_hello_gradle_sample_application">Creating a "Hello Gradle" sample application</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For the example application we create a simple Hello Gradle application.
+<p>For the example application we create a simple "Hello Gradle" application.
 First we need to move the <code>App</code> and <code>AppTest</code> classes to a <code>hello</code> package to facilitate Spring’s component scan.
 For that create the <code>src/main/java/hello</code> and <code>src/test/java/hello</code> directories, move the respective classes to the folders.</p>
 </div>
@@ -418,24 +417,12 @@ For that create the <code>src/main/java/hello</code> and <code>src/test/java/hel
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 public class App {
 
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
-    }
-
-    @RestController("/")
-    public class HelloGradleController {
-
-        @GetMapping
-        public String helloGradle() {
-            return "Hello Gradle!";
-        }
-
     }
 
 }</code></pre>
@@ -485,6 +472,19 @@ public class AppTest {
 </div>
 <div class="paragraph">
 <p>The <code>helloGradle</code> test method spins up the <code>App</code> Spring Boot application and asserts the returned content when doing a <code>GET</code> request on the root path.</p>
+</div>
+<div class="paragraph">
+<p>As a last step we need to define the main class name for the Spring Boot jar file.
+For that we need to define the <code>mainClassName</code> attribute on the <code>bootJar</code> configuration closure.
+Add the following snippet to your <code>build.gradle</code> and then we are ready to run the Spring Boot application.</p>
+</div>
+<div class="listingblock">
+<div class="title">build.gradle</div>
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">bootJar {
+    mainClassName = 'hello.App'
+}</code></pre>
+</div>
 </div>
 </div>
 </div>
