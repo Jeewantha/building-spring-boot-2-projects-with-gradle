@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.6.1">
+<meta name="generator" content="Asciidoctor 1.5.5">
 <title>Building Spring Boot 2 Applications with Gradle</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
 <link crossorigin href="//assets.gradle.com" rel="preconnect">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i">
-<link rel="stylesheet" href="https://guides.gradle.org/css/asciidoctor.css">
-<link rel="stylesheet" href="https://guides.gradle.org/css/docs-blue-theme-4.8.1.css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://guides.gradle.org/css/docs-blue-theme-4.10.css">
 <link rel="apple-touch-icon" sizes="180x180" href="https://guides.gradle.org/icon/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="https://guides.gradle.org/icon/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="https://guides.gradle.org/icon/favicon-16x16.png" sizes="16x16">
 <link rel="manifest" href="https://guides.gradle.org/icon/manifest.json">
 <link rel="shortcut icon" href="https://guides.gradle.org/icon/favicon.ico">
-<script defer src="https://guides.gradle.org/js/guides-4.8.js"></script>
+<script defer src="https://guides.gradle.org/js/guides-4.10.js"></script>
 <script defer src="https://guides.gradle.org/js/set-time-to-complete-text.js"></script>
 <script async src="https://guides.gradle.org/js/autotrack.js"></script>
 
@@ -167,16 +167,6 @@
     <div class="chapter">
 <div id="header">
 <h1>Building Spring Boot 2 Applications with Gradle</h1>
-</div>
-<div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>This guide shows how to build a new Gradle project for Spring Boot 2.0.
-First we show some noteworthy features of Spring Boot and its Gradle plugin.
-Next we’ll setup the Gradle project, apply the Spring Boot plugin, use the Gradle BOM support to define the dependencies and create an example project to show an integration with <a href="https://gradle.com/build-scans">Gradle Build Scans</a>.</p>
-</div>
-</div>
 <div id="toc" class="toc">
 <div id="toctitle">Contents</div>
 <ul class="sectlevel1">
@@ -190,6 +180,16 @@ Next we’ll setup the Gradle project, apply the Spring Boot plugin, use the Gra
 <li><a href="#next_steps">Next Steps</a></li>
 <li><a href="#help_improve_this_guide">Help improve this guide</a></li>
 </ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This guide shows how to build a new Gradle project for Spring Boot 2.0.
+First we show some noteworthy features of Spring Boot and its Gradle plugin.
+Next we’ll setup the Gradle project, apply the Spring Boot plugin, use the Gradle BOM support to define the dependencies and create an example project to show an integration with <a href="https://gradle.com/build-scans">Gradle Build Scans</a>.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -301,7 +301,7 @@ For that open the <code>build.gradle</code> file and adapt the <code>plugin</cod
 <div class="content">
 <pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">plugins {
     id 'java'
-    id 'com.gradle.build-scan' version '1.15.1'
+    id 'com.gradle.build-scan' version '1.15.2'
     id 'org.springframework.boot' version '2.0.3.RELEASE'
 }</code></pre>
 </div>
