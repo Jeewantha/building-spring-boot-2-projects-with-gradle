@@ -301,8 +301,8 @@ For that open the <code>build.gradle</code> file and adapt the <code>plugin</cod
 <div class="content">
 <pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">plugins {
     id 'java'
-    id 'com.gradle.build-scan' version '1.15.2'
-    id 'org.springframework.boot' version '2.0.3.RELEASE'
+    id 'com.gradle.build-scan' version '1.16'
+    id 'org.springframework.boot' version '2.0.5.RELEASE'
 }</code></pre>
 </div>
 </div>
@@ -335,7 +335,7 @@ The other dependencies do not need to have a specific version as these are impli
 <div class="title">build.gradle</div>
 <div class="content">
 <pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">dependencies {
-    implementation 'org.springframework.boot:spring-boot-dependencies:2.0.3.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-dependencies:2.0.5.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -428,15 +428,34 @@ public class App {
 }</code></pre>
 </div>
 </div>
+<div class="listingblock">
+<div class="title">HelloGradleController.java</div>
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-java" data-lang="java">package hello;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController("/")
+public class HelloGradleController {
+
+    @GetMapping
+    public String helloGradle() {
+        return "Hello Gradle!";
+    }
+
+}</code></pre>
+</div>
+</div>
 <div class="paragraph">
-<p>In the class above we create a new Spring Boot application and a <code>HelloGradleController</code> which returns <code>Hello Gradle!</code> when a <code>GET</code> request is processed on the root path of the application.</p>
+<p>In the above snippets we create a new Spring Boot application and a <code>HelloGradleController</code> which returns <code>Hello Gradle!</code> when a <code>GET</code> request is processed on the root path of the application.</p>
 </div>
 <div class="paragraph">
 <p>To test this functionality we need to create an integration test.
 For that adapt the <code>AppTest</code> class located in the <code>src/test/java/hello</code> folder and replace its content with the following:</p>
 </div>
 <div class="listingblock">
-<div class="title">App.java</div>
+<div class="title">AppTest.java</div>
 <div class="content">
 <pre class="prettyprint highlight"><code class="language-java" data-lang="java">package hello;
 
